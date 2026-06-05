@@ -7,40 +7,124 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <div id="main">
-        <nav>
-            <div id="navbar">
-                <h2>Productivity Dashboard</h2>
-            </div>
-            <div id="changetheme">
-                <button id="theme-toggle" >Toggle Theme</button>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">📊 Productivity Hub</h1>
+                <div class="nav-buttons">
+                    <button class="nav-btn active" data-tab="pomodoro">
+                        🍅 Pomodoro
+                    </button>
+                    <button class="nav-btn" data-tab="todo">
+                        ✓ Todo List
+                    </button>
+                    <button class="nav-btn" data-tab="notes">
+                        📝 Notes
+                    </button>
+                </div>
             </div>
         </nav>
 
+        <!-- Main Content Section -->
         <section class="allelements">
+            <!-- POMODORO TAB -->
+            <div class="tab-content active" id="pomodoro-tab">
+                <div class="pomodoro-container">
+                    <h2 class="section-title">Pomodoro Timer</h2>
+                    <p class="subtitle">Stay focused with the Pomodoro Technique</p>
+                    
+                    <div class="timer-display">
+                        <div class="timer-circle">
+                            <span id="timer-minutes">25</span>
+                            <span class="colon">:</span>
+                            <span id="timer-seconds">00</span>
+                        </div>
+                    </div>
 
-           <div class="todo elem" id="1">
-            Todo List
-           </div>
-           <div class="dailyplanner elem" id="2">
-            Daily Planner
-           </div>
-           <div class="motivation elem" id="3">
-            motivation
-           </div>
-           <div class="pomodoro elem" id="4">
-            pomodoro timer
-           </div>
-           <div class="dailytask elem" id="5">
-            daily task
-           </div>
+                    <div class="timer-status">
+                        <p id="status-text">Work Session</p>
+                    </div>
 
-            
+                    <div class="timer-buttons">
+                        <button class="btn btn-primary" id="start-btn">Start</button>
+                        <button class="btn btn-secondary" id="pause-btn">Pause</button>
+                        <button class="btn btn-danger" id="reset-btn">Reset</button>
+                    </div>
+
+                    <div class="timer-settings">
+                        <div class="setting-group">
+                            <label>Work Duration (min)</label>
+                            <input type="number" id="work-duration" value="25" min="1" max="60">
+                        </div>
+                        <div class="setting-group">
+                            <label>Break Duration (min)</label>
+                            <input type="number" id="break-duration" value="5" min="1" max="30">
+                        </div>
+                    </div>
+
+                    <div class="stats">
+                        <p>Sessions Completed: <span id="sessions-count">0</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TODO LIST TAB -->
+            <div class="tab-content" id="todo-tab">
+                <div class="todo-container">
+                    <h2 class="section-title">Todo List</h2>
+                    <p class="subtitle">Organize your tasks and stay productive</p>
+
+                    <div class="todo-input-section">
+                        <input 
+                            type="text" 
+                            id="todo-input" 
+                            placeholder="Add a new task..." 
+                            class="todo-input"
+                        >
+                        <button id="add-todo-btn" class="btn btn-primary">Add</button>
+                    </div>
+
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="active">Active</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+
+                    <ul class="todo-list" id="todo-list">
+                        <!-- Todos will be added here -->
+                    </ul>
+
+                    <div class="todo-stats">
+                        <p>Total Tasks: <span id="total-tasks">0</span></p>
+                        <p>Completed: <span id="completed-tasks">0</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOTES TAB -->
+            <div class="tab-content" id="notes-tab">
+                <div class="notes-container">
+                    <h2 class="section-title">Quick Notes</h2>
+                    <p class="subtitle">Write down your ideas and important thoughts</p>
+
+                    <textarea 
+                        id="notes-textarea" 
+                        class="notes-textarea" 
+                        placeholder="Write your notes here..."
+                    ></textarea>
+
+                    <div class="notes-buttons">
+                        <button id="save-notes-btn" class="btn btn-primary">Save</button>
+                        <button id="clear-notes-btn" class="btn btn-danger">Clear</button>
+                    </div>
+
+                    <p class="note-info">Notes are saved automatically</p>
+                </div>
+            </div>
         </section>
     </div>
-    
-    
+
     <script src="script.js"></script>
 </body>
 </html>
